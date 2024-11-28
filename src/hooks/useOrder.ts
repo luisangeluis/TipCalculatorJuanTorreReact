@@ -18,9 +18,16 @@ const useOrder = () => {
         }
     }
 
+    const deleteItem=(id:OrderItem["id"])=>{
+        const newOrder = order.filter(item=>item.id!==id);
+
+        setOrder(newOrder);
+    }
+
     return {
+        order,
         addItem,
-        order
+        deleteItem
     }
 
 }

@@ -3,9 +3,10 @@ import useOrder from './hooks/useOrder';
 import './App.css';
 //COMPONENTS
 import MenuItem from './components/MenuItem';
+import OrderContents from './components/OrderContents';
 
 function App() {
-  const { addItem, order } = useOrder();
+  const { order, addItem, deleteItem } = useOrder();
 
   console.log(menuItems);
 
@@ -21,11 +22,8 @@ function App() {
             {menuItems.map(item => <MenuItem key={item.id} item={item} addItem={addItem} />)}
           </div>
         </section>
-        <section>
-          <h2>Orders</h2>
-          {
-            order.map((item, i) => <h2 key={i}>order item</h2>)
-          }
+        <section className="border border-dashed border-slate-300 p-5 rounded-lg space-y-10">
+          <OrderContents order={order} deleteItem={deleteItem}/>
         </section>
       </main>
     </div>
