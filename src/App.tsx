@@ -4,6 +4,8 @@ import './App.css';
 //COMPONENTS
 import MenuItem from './components/MenuItem';
 import OrderContents from './components/OrderContents';
+import OrderTotals from './components/OrderTotals';
+import TipPercentajeForm from './components/TipPercentajeForm';
 
 function App() {
   const { order, addItem, deleteItem } = useOrder();
@@ -24,6 +26,8 @@ function App() {
         </section>
         <section className="border border-dashed border-slate-300 p-5 rounded-lg space-y-10">
           <OrderContents order={order} deleteItem={deleteItem}/>
+          <TipPercentajeForm />
+          <OrderTotals order={order}/>
         </section>
       </main>
     </div>
